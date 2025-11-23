@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: shopping-mall-backend
+  
+  # H2 데이터베이스 설정 (개발용)
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# AWS 설정 (나중에 사용)
+aws:
+  region: ap-northeast-2
+  s3:
+    bucket: teto-shop-images
+    cloudfront-domain: your-cloudfront-domain
+
+jwt:
+  secret: mySecretKey123456789012345678901234567890
+  expiration: 86400000  # 24시간
+
+logging:
+  level:
+    com.aws.mall: DEBUG
+    org.springframework.web: DEBUG
